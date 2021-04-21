@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #f6df8f
+        }
+        #week2 > img,
+        .background > img,
+        .webm > video
+        {
+            /* 포지션 값을 겹치게 하는 것, 한 군데에 뭉쳐줌 */
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="week2">
+        <div class = "background">
+            <img src="https://paidpost-assets.nyt.com/paidpost/allbirds/birds-eye-view/images/1-048ff1be.png">
+        </div>
+        <img src="https://paidpost-assets.nyt.com/paidpost/allbirds/birds-eye-view/images/2-d59fc8c4.png">
+        <div class="webm">
+            <video autoplay="" playsinline="" loop="" muted="">
+                <source src="https://paidpost-assets.nyt.com/paidpost/allbirds/birds-eye-view/videos/3-21de0bfd.webm" type="video/webm">
+            </video>
+        </div>
+        <img src="https://paidpost-assets.nyt.com/paidpost/allbirds/birds-eye-view/images/4-f4f69776.png">
+        <img src="https://paidpost-assets.nyt.com/paidpost/allbirds/birds-eye-view/images/5-15410aa5.png">
+        <img src="https://paidpost-assets.nyt.com/paidpost/allbirds/birds-eye-view/images/6-cd4a6ee1.png">
+        <img src="https://paidpost-assets.nyt.com/paidpost/allbirds/birds-eye-view/images/7-6c3d1400.png">
+        <img src="https://paidpost-assets.nyt.com/paidpost/allbirds/birds-eye-view/images/8-81804a1f.png">
+    </div> 
+    
+    <script>
+        let x = 0;
+        let y = 0;
+        //6개의 이미지가 찍혀있음
+        let imgArr = document.querySelectorAll('#week2>img');
+        let mx = 0;
+        let my = 0;
+        let speed = 0.002;
+        let webm
+
+        window.onload = function(){
+            imgArr = document.querySelectorAll('#week2 > img');
+            webm = document.querySelector('.webm > video');
+
+            window.addEventListener("mousemove", (e) => {
+                //윈도우의 정 중앙을 (0,0) 으로 하는것
+                x = (e.clientX - window.innerWidth /2);
+				y = (e.clientY - window.innerHeight / 2);
+            }, false);
+            loop();
+        }
+
+        function loop(){
+            //console.log();
+            mx += (x - mx) * speed;
+            my += (y - my) * speed;
+            
+            //멀리 있는 애는 덜 움직이게 함
+            for(let i = 0; i < imgArr.length; i++){
+                imgArr[i].style.transform = "translate(" + (mx / (imgArr.length+1 - i)) + "px," + (my / (imgArr.length+1 - i)) + "px)";
+            }
+            webm.style.transform = "translate(" + (mx / 3) + "px," + (my / 3) + "px)";
+            window.requestAnimationFrame(loop);
+        }
+    </script>
+</body>
+</html>
