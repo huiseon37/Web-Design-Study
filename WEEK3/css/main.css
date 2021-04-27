@@ -1,0 +1,166 @@
+body {
+  overflow: hidden;
+}
+
+.wrap {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(120deg, #1c94c7, #e0bd6e);
+  -webkit-transition: background 1s ease-out;
+  transition: background 1s ease-out;
+}
+
+.wrap .album {
+  position: absolute;
+  top: 47%;
+  left: 55%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.wrap .album.active {
+  visibility: visible;
+  opacity: 1;
+  left: 50%;
+}
+
+.wrap .album.active .disk {
+  left: 180px;
+  -webkit-transition-delay: .5s;
+          transition-delay: .5s;
+}
+
+.wrap .album:hover .disk {
+  left: 40%;
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+
+.wrap .album .coverImg {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  -webkit-box-shadow: 2px 14px 40px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 14px 40px rgba(0, 0, 0, 0.3);
+}
+
+.wrap .album .coverImg img {
+  width: inherit;
+  height: inherit;
+}
+
+.wrap .album .disk {
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 392px;
+  height: 392px;
+  border-radius: 50%;
+  background: linear-gradient(120deg, black, grey, black);
+  -webkit-box-shadow: 4px 14px 40px rgba(0, 0, 0, 0.3);
+          box-shadow: 4px 14px 40px rgba(0, 0, 0, 0.3);
+  -webkit-animation: rotateAnimation 10s ease infinite;
+          animation: rotateAnimation 10s ease infinite;
+  -webkit-transition: left 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: left 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.wrap .album .disk .diskInner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 160px;
+  height: 160px;
+  background-color: #0473a4;
+  border-radius: 50%;
+  border: 3px dashed rgba(255, 255, 255, 0.4);
+}
+
+.wrap .album .disk .diskInner::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 7px;
+  height: 7px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.buttonWrap {
+  position: fixed;
+  bottom: 5vh;
+  text-align: center;
+  width: 100%;
+}
+
+.buttonWrap button {
+  padding: 6px 20px;
+  margin: 0 3px;
+  background-color: #010101;
+  color: #fff;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+}
+
+.buttonWrap button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.buttonWrap .pointWrap {
+  position: relative;
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.buttonWrap .pointWrap li {
+  position: relative;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  text-align: center;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  -webkit-transition: background .3s ease-out;
+  transition: background .3s ease-out;
+}
+
+.buttonWrap .pointWrap li.active {
+  background-color: black;
+}
+
+@-webkit-keyframes rotateAnimation {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateAnimation {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+/*# sourceMappingURL=main.css.map */

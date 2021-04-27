@@ -1,0 +1,159 @@
+body {
+    overflow: hidden;
+}
+
+.wrap {
+    width: 100vw;
+    height: 100vh;
+    //앨범마다 바뀌어야 함
+    background: linear-gradient(120deg, #1c94c7, #e0bd6e);
+    //화면전환 CSS
+    transition: background 1s ease-out;  
+
+    .album {
+        position: absolute;
+        //화면의 중앙에서 요소가 시작될 수 있도록
+        top: 47%;
+        left: 55%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        height: 400px;
+        //화면전환 CSS
+        transition : all .4s ease-in-out;
+        //activate만 활성화 될 수 있도록
+        opacity: 0;
+        visibility: hidden;  
+
+        &.active {
+            visibility: visible;
+            opacity: 1;
+            left: 50%;
+
+            .disk {
+                left: 180px;
+                transition-delay: .5s;
+            }
+        }
+
+        &:hover {
+            .disk {
+                left: 40%;
+                // transform: rotate(120deg);
+                transition-delay: 0s;
+                // transition : transform 0 ease-out;
+            }
+        }
+
+        .coverImg {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            box-shadow: 2px 14px 40px rgba(0,0,0,.3);
+            img {
+                width: inherit;
+                height: inherit;
+            }
+        }
+
+        .disk {
+            position: absolute;
+            //부모의 정중앙으로 옮겨줌
+            transform: translate(-50%, -50%);
+
+            width: 392px;
+            height: 392px;
+            border-radius: 50%;
+            background: linear-gradient(120deg, black, grey, black);
+            box-shadow: 4px 14px 40px rgba(0, 0, 0, .3);
+            
+            //애니메이션 적용시 transform 속성이 무시됨.
+            animation: rotateAnimation 10s ease infinite;
+            //left animation
+            transition: left .6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            //trainsition: left .6s ease-in-out
+
+            .diskInner {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                width: 160px;
+                height: 160px;
+
+                //앨범마다 바뀌어야 함
+                background-color: #0473a4;
+
+                border-radius: 50%;
+                border: 3px dashed rgba(255, 255, 255, .4);
+
+                &::after {
+                    position: absolute;
+                    content: "";
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 7px;
+                    height: 7px;
+                    background-color: black;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
+
+
+.buttonWrap {
+    position : fixed;
+    bottom : 5vh;
+    text-align: center;
+    width: 100%;
+
+    button {
+        padding : 6px 20px;
+        margin: 0 3px;
+        background-color: rgba(1, 1, 1, 1);
+        color: #fff;
+        transition: all .3s ease-out;
+
+        &:hover {
+            background-color: #fff;
+            color : #000;
+        }
+    }
+
+    .pointWrap {
+        position: relative;
+        display: inline-block;
+        padding: 0 10px;
+
+        li {
+            position : relative;
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            text-align: center;
+            cursor : pointer;
+            background-color: rgba(0,0,0,.4);
+            border-radius: 50%;
+            transition : background .3s ease-out;
+
+            &.active {
+                background-color: rgba(0,0,0,1);
+            }
+        }
+    }
+}
+
+//animation 생성
+@keyframes rotateAnimation {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
