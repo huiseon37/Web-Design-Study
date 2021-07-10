@@ -1,0 +1,30 @@
+body {
+    height: 1000vh;
+    background: linear-gradient(120deg, red, orange, yellow, green, blue, indigo, purple);
+   
+    .header {
+        position: fixed;
+        width: 100%;
+        text-align: center;
+
+        .progress{
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            top: 0;
+            left: 0;
+            background-color: black;
+            z-index: 10;
+
+            .bar{
+                position: absolute;
+                width: 100%;
+                height: 5px;
+                top: 0;
+                left: 0;
+                background-color: yellow;
+                z-index: 10;
+            }
+        }
+    }    
+}

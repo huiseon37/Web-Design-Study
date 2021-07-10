@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week4</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="progress">
+            <span class="bar"></span>
+        </div>
+        
+        <h1>ScrollHeight : <span class="scrollHeight"></span></h1>
+        <h1>ScrollTop : <span class="scrollTop"></span></h1>
+    </div>
+
+    <script>
+        const heightArea = document.querySelector('.scrollHeight');
+        const topArea = document.querySelector('.scrollTop');
+
+        let scrollHeight = 0;
+        let scrollTop = 0;
+        let bar;
+
+        window.onload = function start(){
+            scrollHeight = document.documentElement.scrollHeight;
+            heightArea.innerHTML = scrollHeight;
+            bar = document.getElementsByClassName('bar')[0];
+        }
+
+        window.addEventListener('scroll', (e) => {
+            scrollTop = document.documentElement.scrollTop;
+            topArea.innerHTML = scrollTop;
+            //console.log(scrollTop);
+
+            //퍼센트 길이 구하기
+            let per = Math.ceil((scrollTop / (scrollHeight - window.innerHeight)) * 100 );
+            console.log(per);
+            bar.style.width = per + "%";
+            //bar.style.height = per + "%";
+        })
+        
+    </script>
+</body>
+
+</html>

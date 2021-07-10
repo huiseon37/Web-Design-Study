@@ -1,0 +1,93 @@
+body {
+    height: 1500vh;
+    background: linear-gradient(120deg, red, orange, yellow, green, blue, indigo, purple);
+    font-size: 12px;
+    .contentWrap{
+        width: 70%;
+        margin: 0 auto;
+        background-color: white;
+        color: black;
+        border-radius: 10px;
+        font-size: 20px;
+        text-align: center;
+        padding: 50px;
+        margin-top: 300px;
+        margin-bottom: 300px;
+    }
+    .cloudWrap{
+        position: fixed;
+
+        img{
+            position: absolute;
+            width: 400px;
+            top:0; left: 0;
+
+            &:nth-child(1){
+                top : -100px;
+                left : 500px;
+            }
+            
+
+            &:nth-child(2){
+                top : 800px;
+                left : 0px;
+            }
+            
+
+            &:nth-child(3){
+                top : 1800px;
+                left : 400px;
+            }
+            
+
+            &:nth-child(4){
+                top : 3000px;
+                left : -100px;
+            }
+            
+
+            &:nth-child(5){
+                top : 4200px;
+                left : 500px;
+            }
+            
+
+            &:nth-child(6){
+                top : 5900px;
+                left : -140px;
+            }
+            
+
+            &:nth-child(7){
+                top : 7000px;
+                left : 500px;
+            }
+            
+
+            &:nth-child(8){
+                top : 8000px;
+                left : -190px;
+            }
+            
+
+            &:nth-child(9){
+                top : 9500px;
+                left : 600px;
+            }
+            
+
+            &:nth-child(10){
+                top : 11500px;
+                left : 750px;
+            }
+        }
+
+        &.second{
+            position: fixed;
+            top:-200px;
+            left: 700px;
+            z-index : 1000;
+        }
+
+    }
+}
